@@ -1,0 +1,71 @@
+\documentclass{beamer}
+%\usepackage{beamerthemesplit}
+\usepackage{graphicx}
+%\usetheme[secheader]{Boadilla}
+\usetheme{Madrid}
+\usecolortheme{orchid}
+%\usefonttheme{structurebold}
+\usepackage{pgfpages}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{svg}
+%\pgfpagelayout{2 on 1}[letterpaper,border shrink=5mm]
+\mode<presentation>
+
+
+\setbeamertemplate{theorem}[ams style]
+\setbeamertemplate{theorems}[numbered]
+\makeatletter
+    \ifbeamer@countsect
+      \newtheorem{teorema}{\translate{Teorema}}[section]
+    \else
+      \newtheorem{teorema}{\translate{Teorema}}
+    \fi
+    \newtheorem{corolario}{\translate{Corolario}}
+    \newtheorem{supuesto}{\translate{Supuesto}}
+    \newtheorem{lema}{\translate{Lema}}
+    \newtheorem{problema}{\translate{Problema}}
+    \newtheorem{ejemplo}{\translate{Ejemplo}}
+\makeatother
+\newtheorem{definicion}{Definici\'on}
+\newtheorem{solucion}{Soluci\'on}
+
+\title{Factores que afectan las curvas de rendimiento -- Fabozzi (2013)}
+\graphicspath{{Images/}}
+
+\usepackage{caption}
+\captionsetup[figure]{name=Figura}
+
+
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{\includegraphics[height=1cm]{BR_100Años.jpg}}
+%\logo{\includegraphics[height=1.2cm]{BanrepNegro.png}}
+\author[]{}
+\institute[]{\large\textbf{Universidad Nacional de Colombia}}
+\date{Febrero 1, 2025}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Contenido}
+\tableofcontents
+\end{frame}
+
+\section{Estructura del \textsc{rstan}}
+
+\begin{frame}
+
+\end{frame}
+\begin{frame}
+
+\end{frame}
+
+
+
+
+\end{document}
