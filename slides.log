@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.31)  31 JAN 2025 09:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.31)  31 JAN 2025 09:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -983,7 +983,6 @@ cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 52.
- (slides.out) (slides.out)
 \@outlinefile=\write5
 \openout5 = `slides.out'.
 
@@ -1068,59 +1067,57 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- (slides.nav)
-Overfull \hbox (64.63481pt too wide) in paragraph at lines 52--52
+
+No file slides.nav.
+
+Overfull \hbox (50.96799pt too wide) in paragraph at lines 52--52
  [][][][]  
  []
 
 
-Overfull \hbox (64.63481pt too wide) in paragraph at lines 53--53
+Overfull \hbox (50.96799pt too wide) in paragraph at lines 53--53
  [][][][]  
  []
 
 
-Overfull \hbox (64.63481pt too wide) has occurred while \output is active
+Overfull \hbox (50.96799pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [1
 
 {C:/Users/LENOVO/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (64.63481pt too wide) in paragraph at lines 57--57
+Overfull \hbox (50.96799pt too wide) in paragraph at lines 57--57
  [][][][]  
  []
 
-(slides.toc
+No file slides.toc.
 
-LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10.95> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 1.
-
-)
-Overfull \hbox (64.63481pt too wide) has occurred while \output is active
+Overfull \hbox (50.96799pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [2
 
 ]
-Overfull \hbox (64.63481pt too wide) in paragraph at lines 63--63
+Overfull \hbox (50.96799pt too wide) in paragraph at lines 63--63
  [][][][]  
  []
 
 
-Overfull \hbox (64.63481pt too wide) has occurred while \output is active
+Overfull \hbox (50.96799pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [3
 
 ]
-Overfull \hbox (64.63481pt too wide) in paragraph at lines 66--66
+Overfull \hbox (50.96799pt too wide) in paragraph at lines 66--66
  [][][][]  
  []
 
 
-Overfull \hbox (64.63481pt too wide) has occurred while \output is active
+Overfull \hbox (50.96799pt too wide) has occurred while \output is active
  [][][][]  
  []
 
@@ -1146,26 +1143,32 @@ See the caption package documentation for explanation.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-Package rerunfilecheck Info: File `slides.out' has not changed.
-(rerunfilecheck)             Checksum: 8903C0459947B50D208F20007A19F7D0;149.
+
+
+Package rerunfilecheck Warning: File `slides.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `slides.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  8903C0459947B50D208F20007A19F7D0;149.
  ) 
 Here is how much of TeX's memory you used:
- 24023 strings out of 474485
- 473997 string characters out of 5743262
+ 23947 strings out of 474485
+ 472374 string characters out of 5743262
  1936542 words of memory out of 5000000
- 45825 multiletter control sequences out of 15000+600000
- 560783 words of font info for 45 fonts, out of 8000000 for 9000
+ 45758 multiletter control sequences out of 15000+600000
+ 560482 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,404b,635s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,123p,404b,574s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmcsc10.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmss10.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmss12.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/LENOVO/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
-Output written on slides.pdf (4 pages, 84249 bytes).
+/cmss10.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmss12.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmss8.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmssbx10.pfb>
+Output written on slides.pdf (4 pages, 71610 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
+ 160 PDF objects out of 1000 (max. 8388607)
  10 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 79 words of extra memory for PDF output out of 10000 (max. 10000000)
 
