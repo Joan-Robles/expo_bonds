@@ -5,7 +5,7 @@ rm(list = ls())
 set.seed(123) # Fijar semilla
 
 # Ejemplo ----------------------------------------------------------------
-pacman::p_load(readxl, dplyr, stats, forecast, parallel)
+pacman::p_load(readxl, dplyr, stats, forecast, parallel, ggplot2, tidyverse)
 
 # Leer y listar flujos ---------------------------------------------------------------------
 
@@ -65,7 +65,7 @@ arima_models <- lapply(1:n_componentes, function(i) {
 })
 
 # Simulo
-n_semanas <- 4 # Un mes
+n_semanas <- 52 # Un año
 n_simulaciones <- 10000
 
 # Simular sendas futuras para cada componente principal
@@ -154,7 +154,7 @@ pv_1 <- lapply(flows, function(x) {
   })
 
 # Resultado final -----------------------------------------------------------------
-desired_graph <- 7
+desired_graph <- 3
 
 changes <- (pv_1[[desired_graph]] / pv_0[[desired_graph]])
 graph_name <- paste("Histograma de retornos en un mes - ", names(flows)[desired_graph])
@@ -170,3 +170,77 @@ hist(changes,
 )
 
 Sys.time() - .initial_time # Reporta cuánto toma corriendo
+
+# fanchart -----------------------------------------------------------------
+
+create_fan_chart <- function(history, simulations) {
+  library(dplyr)
+  library(tidyr)
+  library(ggplot2)
+  
+  # Create a data frame for the historical data
+  history_df <- data.frame(
+    Period = 1:length(history),
+    Value = history
+  )
+  
+  # Ensure simulations is a numeric matrix and convert it to a data frame
+  simulations <- as.matrix(simulations)
+  simulations_df <- as.data.frame(simulations)
+  
+  # The forecast periods will start immediately after the historical periods
+  start_forecast <- max(history_df$Period) + 1
+  simulations_df$Period <- start_forecast:(start_forecast + nrow(simulations_df) - 1)
+  
+  # Shift the simulations so they are on the same level as history.
+  # (Assuming your simulations represent deviations/cumulative changes from 0,
+  # we add the last historical value to each simulation.)
+  last_value <- tail(history, 1)
+  sim_cols <- setdiff(names(simulations_df), "Period")
+  simulations_df[sim_cols] <- lapply(simulations_df[sim_cols], function(x) as.numeric(x) + last_value)
+  
+  # Reshape the simulations from wide to long format
+  simulations_long <- simulations_df %>%
+    pivot_longer(
+      cols = -Period,
+      names_to = "Simulation",
+      values_to = "Value"
+    ) %>%
+    mutate(Value = as.numeric(Value))
+  
+  # Calculate quantiles for each forecast period
+  quantiles <- simulations_long %>%
+    group_by(Period) %>%
+    summarise(
+      Q10 = quantile(Value, 0.10, na.rm = TRUE),
+      Q25 = quantile(Value, 0.25, na.rm = TRUE),
+      Q50 = quantile(Value, 0.50, na.rm = TRUE),
+      Q75 = quantile(Value, 0.75, na.rm = TRUE),
+      Q90 = quantile(Value, 0.90, na.rm = TRUE)
+    )
+  
+  # Build the fan chart:
+  # - First add the forecast fan (ribbons and median forecast line),
+  # - Then add the historical line on top.
+  ggplot() +
+    geom_ribbon(data = quantiles, aes(x = Period, ymin = Q10, ymax = Q90),
+                fill = "skyblue", alpha = 0.5) +
+    geom_ribbon(data = quantiles, aes(x = Period, ymin = Q25, ymax = Q75),
+                fill = "blue", alpha = 0.5) +
+    geom_line(data = quantiles, aes(x = Period, y = Q50),
+              color = "red", size = 1) +
+    geom_line(data = history_df, aes(x = Period, y = Value),
+              color = "blue", size = 1) +
+    labs(
+      title = "Fan Chart nodo de un año",
+      x = "Semana",
+      y = "Tasa"
+    ) +
+    theme_minimal()
+}
+
+
+desired_node <- 3 # one year
+
+create_fan_chart(history = bonds[-c(1:400), 3] * 100,
+ simulations = resultados[, desired_node, ] * 100)
